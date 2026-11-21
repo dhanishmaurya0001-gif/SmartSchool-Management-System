@@ -1,0 +1,61 @@
+name: school-interview-demo
+
+services:
+  db:
+    image: mariadb:10.11
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: ${DB_NAME:-school_demo}
+      MARIADB_USER: ${DB_USER:-school_app}
+      MARIADB_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in .env}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:?Set DB_ROOT_PASSWORD in .env}
+    volumes:
+      - school_db:/var/lib/mysql
+      - ./database.sql:/docker-entrypoint-initdb.d/10-school.sql:ro
+    networks:
+      - database
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 18
+      start_period: 30s
+
+  app:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_NAME: ${DB_NAME:-school_demo}
+      DB_USER: ${DB_USER:-school_app}
+      DB_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in .env}
+      APP_URL: ${APP_URL:-http://127.0.0.1:8080/}
+      SMART_SCHOOL_APP_KEY: ${SMART_SCHOOL_APP_KEY:?Set SMART_SCHOOL_APP_KEY in .env}
+      APP_SESSION_PATH: /var/lib/school-demo/sessions
+      APP_ENV: production
+    ports:
+      - "127.0.0.1:8080:80"
+    volumes:
+      - school_uploads:/var/www/html/uploads
+    networks:
+      - web
+      - database
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "--show-error", "--max-time", "8", "--output", "/dev/null", "http://127.0.0.1/site/login"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+volumes:
+  school_db:
+  school_uploads:
+
+networks:
+  web:
+  database:
+    internal: true

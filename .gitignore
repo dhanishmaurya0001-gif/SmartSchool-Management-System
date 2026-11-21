@@ -1,0 +1,21 @@
+.env
+.env.*
+!.env.example
+*.log
+*.pid
+backups/
+runtime/
+.DS_Store
+Thumbs.db
+app/application/logs/*
+app/application/cache/*
+app/application/tmp/*
+app/temp/*
+
+app/application/third_party/firebase_notification_key.json
+*cPanel File Manager*
+!app/application/tmp/.gitkeep
+!app/temp/.gitkeep
+
+app/backend/captcha_images/*
+!app/backend/captcha_images/.gitkeep
