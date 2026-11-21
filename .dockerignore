@@ -22,3 +22,6 @@ app/**/.env.*
 
 app/application/third_party/firebase_notification_key.json
 app/backend/captcha_images/*
+
+# Render demo imports this fictional snapshot outside the web root.
+!database.sql

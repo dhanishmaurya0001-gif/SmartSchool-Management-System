@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: smart-school-interview-demo
+    runtime: docker
+    plan: free
+    dockerfilePath: ./deploy/render/Dockerfile
+    dockerContext: .
+    healthCheckPath: /site/login
+    autoDeployTrigger: commit
+    envVars:
+      - key: SMART_SCHOOL_APP_KEY
+        generateValue: true
