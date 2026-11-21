@@ -2,7 +2,7 @@
 
 **Complete PHP/CodeIgniter school ERP source, a fictional demonstration database, local launchers and a custom annual progress-card workflow.**
 
-Prepared and customized by **Dhanish Kumar Maurya** using the supplied **QDOCS Smart School 7.1.0** application and its 11 add-on modules. The underlying ERP and add-ons are third-party products; the additional progress-card implementation, integration work, demonstration setup and QA are described separately. Original attribution and license-verification files are retained. See [third-party notice](THIRD-PARTY-NOTICE.md).
+
 
 ![Custom Half Yearly and Annual progress card](assets/screenshots/progress-card.png)
 
