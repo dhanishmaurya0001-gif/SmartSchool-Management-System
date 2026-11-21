@@ -1,6 +1,6 @@
 # Live deployment: status and requirements
 
-**No public live application URL has been deployed by this repository.** GitHub provides the source/download/documentation location. GitHub Pages cannot execute the PHP application or provide its MariaDB database.
+**The interview demo is deployed on Render Free:** https://smart-school-interview-demo.onrender.com/site/login . See [live role logins and verification](LIVE-DEMO.md). GitHub remains the source/download/documentation location; GitHub Pages itself cannot execute PHP or provide MariaDB.
 
 The repository includes a local Docker Compose setup and a Windows launcher. A real interviewer-facing URL needs a PHP/container hosting account, a database, an HTTPS domain and deployment-environment verification.
 
@@ -46,4 +46,4 @@ Firebase's actual service-account file is excluded from the public source. Start
 
 Keep notifications and real transactions disabled during a public fictional demonstration unless the exact test destination and provider environment are deliberately configured. Do not expose provider secret screens to public demo visitors.
 
-Once a hosting account and deployment destination are available, this checklist provides the concrete path to an interviewer-facing link. Until the hosted checks pass, share the repository as a local-run demonstration, not as a live application.
+The Render-specific all-in-one runtime is in `deploy/render/`, with a Free Blueprint in `render.yaml`. It uses an ephemeral, automatically seeded MariaDB instance rather than paid persistent hosting. The provider-independent instructions above remain applicable to future durable deployments.

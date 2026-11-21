@@ -6,6 +6,12 @@ Prepared and customized by **Dhanish Kumar Maurya** using the supplied **QDOCS S
 
 ![Custom Half Yearly and Annual progress card](assets/screenshots/progress-card.png)
 
+## Live interview demo
+
+**[Open Staff / Super Admin Demo](https://smart-school-interview-demo.onrender.com/site/login)** · **[Student / Parent Demo](https://smart-school-interview-demo.onrender.com/site/userlogin)** · **[All role logins and live walkthrough](docs/LIVE-DEMO.md)**
+
+Render Free hosts an isolated, fictional school demonstration. All eight representative roles are available. Initial wake-up can take about a minute, and changes reset with the ephemeral container. Public maintenance actions are restricted. See the live guide for credentials, hosted checks and limits.
+
 ## What you can run
 
 - The full application in `app/`, including its bundled PHP dependencies and add-on files.
@@ -54,7 +60,7 @@ When the services are healthy, open:
 
 The database is private to the Compose network; no database port is published. Database records and uploads use named volumes. The SQL snapshot imports only when the database volume is initially empty.
 
-**Verification limit:** Compose configuration has been validated. A successful Docker image build/container startup is not claimed by that configuration check. Recorded native application checks and the Docker/cloud runtime checks are different forms of evidence.
+**Verification:** Local Compose configuration has been validated. The separate Render-specific Docker image has also built and run successfully on Render Free; its hosted role/PDF and selected business-workflow checks are recorded in [the live guide](docs/LIVE-DEMO.md). The local two-container Compose stack has not been runtime-tested on this machine.
 
 ## Automated local smoke check
 
@@ -127,7 +133,7 @@ Provider integrations still require their own credentials/configuration. Firebas
 
 Recorded local verification includes **43 role-login/selected-page checks**, consistency checks on the fictional dataset, normal marksheet PDF generation and parent sibling selection. The custom progress-card checks covered settings save, a one-student PDF, an eight-student bulk PDF, pending marks and an existing-template regression. This does not mean every submenu and every possible operation has passed full end-to-end acceptance.
 
-**No public live application URL is deployed by this repository.** GitHub displays source/documentation and GitHub Pages does not execute this PHP/MariaDB application. See [live deployment requirements and status](docs/LIVE-DEPLOYMENT.md).
+**The public interview demo is live on Render Free.** See [role logins and hosted verification](docs/LIVE-DEMO.md). The app runs in an isolated, resettable PHP/MariaDB container; GitHub itself remains the source and documentation host.
 
 ## Source layout
 
