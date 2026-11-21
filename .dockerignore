@@ -3,9 +3,6 @@
 .env
 .env.*
 !.env.example
-*.zip
-*.7z
-*.rar
 *.log
 *.pid
 database.sql
@@ -22,3 +19,6 @@ app/**/local-login.json
 app/**/keys.json
 app/**/.env
 app/**/.env.*
+
+app/application/third_party/firebase_notification_key.json
+app/backend/captcha_images/*
